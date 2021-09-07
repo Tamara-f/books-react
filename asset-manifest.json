@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/books-react/static/css/main.12ded014.chunk.css",
+    "main.js": "/books-react/static/js/main.266c9442.chunk.js",
+    "main.js.map": "/books-react/static/js/main.266c9442.chunk.js.map",
+    "runtime-main.js": "/books-react/static/js/runtime-main.912767dc.js",
+    "runtime-main.js.map": "/books-react/static/js/runtime-main.912767dc.js.map",
+    "static/js/2.fc3e4e9b.chunk.js": "/books-react/static/js/2.fc3e4e9b.chunk.js",
+    "static/js/2.fc3e4e9b.chunk.js.map": "/books-react/static/js/2.fc3e4e9b.chunk.js.map",
+    "index.html": "/books-react/index.html",
+    "static/css/main.12ded014.chunk.css.map": "/books-react/static/css/main.12ded014.chunk.css.map",
+    "static/js/2.fc3e4e9b.chunk.js.LICENSE.txt": "/books-react/static/js/2.fc3e4e9b.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.912767dc.js",
+    "static/js/2.fc3e4e9b.chunk.js",
+    "static/css/main.12ded014.chunk.css",
+    "static/js/main.266c9442.chunk.js"
+  ]
+}
