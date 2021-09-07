@@ -1,0 +1,17 @@
+.details {
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.detailsText {
+  height: 100%;
+  width: 50%;
+  padding-left: 40px;
+}
+
+.detailsText span {
+  font-weight: 700;
+}
