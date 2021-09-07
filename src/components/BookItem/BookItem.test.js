@@ -15,12 +15,12 @@ afterEach(() => {
   container = null;
 });
 
-let book = {
-  id: '872179f2-4de2-4cde-a259-ee470d83d515',
-  cover: 'https://lorempixel.com/640/480/?ee470d83d515',
-  title: 'Eloquent JavaScript, Second Edition',
-  author: 'Mrs. John Doe'
-};
+// let book = {
+//   id: '872179f2-4de2-4cde-a259-ee470d83d515',
+//   cover: 'https://lorempixel.com/640/480/?ee470d83d515',
+//   title: 'Eloquent JavaScript, Second Edition',
+//   author: 'Mrs. John Doe'
+// };
 
 it('renders without a book', () => {
   act(() => {
