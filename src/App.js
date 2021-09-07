@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
 import BooksView from './views/BooksView';
 import HomeView from './views/HomeView';
 import BookDetailsView from './views/BookDetails/BookDetailsView';
@@ -23,7 +23,7 @@ function App() {
       <Navigation />
       <Context.Provider value={books}>
         <Switch>
-          <Route path='/' exact>
+          <Route path='/home' exact>
             <HomeView />
           </Route>
           <Route path='/books' exact>
@@ -34,6 +34,7 @@ function App() {
             path='/books/:bookId'
             component={() => <BookDetailsView key={window.location.pathname} />}
           />
+          <Redirect to='/home' />
         </Switch>
       </Context.Provider>
     </>

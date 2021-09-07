@@ -3,7 +3,7 @@ import s from './Navigation.module.css';
 
 const Navigation = () => (
   <nav>
-    <NavLink exact to='/' className={s.link} activeClassName={s.activeLink}>
+    <NavLink exact to='/home' className={s.link} activeClassName={s.activeLink}>
       Home
     </NavLink>
 
