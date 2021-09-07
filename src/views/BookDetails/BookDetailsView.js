@@ -44,10 +44,7 @@ export default function BookDetailsView() {
               </p>
 
               <p>
-                <span>isbn:</span> {book.isbn}
-              </p>
-              <p>
-                <span>isbn:</span> {book.isbn}
+                <span>ISBN:</span> {book.isbn}
               </p>
 
               <h2>More authors books:</h2>

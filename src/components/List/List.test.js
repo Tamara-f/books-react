@@ -4,10 +4,16 @@ import List from './List';
 const items = ['html', 'css', 'js'];
 
 describe('List component', () => {
-  test('List renders', () => {
+  it('List renders', () => {
     render(
       <List items={items} renderItem={item => <li key={item}>{item}</li>} />
     );
+
     expect(screen.getByText('html')).toBeInTheDocument();
+  });
+
+  it('List renders without data', () => {
+    render(<List />);
+    expect(screen.queryByRole('list')).toBeNull();
   });
 });
