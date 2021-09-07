@@ -6,6 +6,13 @@ import { Context } from '../../context';
 
 import s from './BookDetails.module.css';
 
+const findBooks = (book, books) => {
+  if (book) {
+    const newstr = book.author.replace(/^(Mr.|Ms.|Mrs.|Dr.|Prof.)\.?\s/i, '');
+    return books.filter(b => b.author.includes(newstr) && b.id !== book.id);
+  }
+};
+
 export default function BookDetailsView() {
   const [book, setBook] = useState('');
   const [filteredBooks, setFilteredBooks] = useState('');
@@ -18,22 +25,10 @@ export default function BookDetailsView() {
   useEffect(() => {
     const currentBook = books.find(book => book.id === bookId);
     setBook(currentBook);
-    const authorsBooks = findBooks(book);
+    const authorsBooks = findBooks(book, books);
     setFilteredBooks(authorsBooks);
-  }, [book, books]);
+  }, [book, books, bookId]);
 
-  const findBooks = book => {
-    if (book) {
-      const newstr = book.author.replace(/^(Mr.|Ms.|Mrs.|Dr.|Prof.)\.?\s/i, '');
-      return books.filter(b => b.author.includes(newstr) && b.id !== book.id);
-    }
-  };
-  const handleClick = () => {
-    if (history.length > 1) {
-      history.goBack();
-    }
-    history.push('/books');
-  };
   return (
     <Container>
       {book && (
@@ -55,8 +50,6 @@ export default function BookDetailsView() {
                 <span>isbn:</span> {book.isbn}
               </p>
 
-              <button onClick={handleClick}>Back</button>
-
               <h2>More authors books:</h2>
               <ul className={s.list}>
                 {filteredBooks ? (
@@ -69,6 +62,20 @@ export default function BookDetailsView() {
                   <p>loading...</p>
                 )}
               </ul>
+              <button
+                onClick={() => {
+                  history.goBack();
+                }}
+              >
+                Back
+              </button>
+              <button
+                onClick={() => {
+                  history.push('/books');
+                }}
+              >
+                Back to list
+              </button>
             </div>
           </div>
         </>

@@ -1,4 +1,4 @@
-import List from '../components/List';
+import List from '../components/List/List';
 import BookItem from '../components/BookItem/BookItem';
 
 const BooksView = ({ books }) => {
