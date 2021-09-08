@@ -31,7 +31,7 @@ export default function BookDetailsView() {
 
   return (
     <Container>
-      {book && (
+      {book ? (
         <>
           <h2> {book.title} </h2>
 
@@ -76,6 +76,8 @@ export default function BookDetailsView() {
             </div>
           </div>
         </>
+      ) : (
+        <p>no info</p>
       )}
     </Container>
   );

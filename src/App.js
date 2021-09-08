@@ -11,32 +11,46 @@ import './App.css';
 
 function App() {
   const [books, setBooks] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetchBooks().then(data => {
-      setBooks(data);
-    });
+    setIsLoading(true);
+    fetchBooks()
+      .then(data => {
+        setBooks(data);
+      })
+      .catch(error => setError(error))
+      .finally(setIsLoading(false));
   }, []);
 
   return (
     <>
-      <Navigation />
-      <Context.Provider value={books}>
-        <Switch>
-          <Route path='/home' exact>
-            <HomeView />
-          </Route>
-          <Route path='/books' exact>
-            <BooksView books={books} />
-          </Route>
+      {error && <p>Whoops, something went wrong: {error.message}</p>}
+      {isLoading && <p>Loading...</p>}
+      {books.length > 0 && (
+        <>
+          <Navigation />
+          <Context.Provider value={books}>
+            <Switch>
+              <Route path='/home' exact>
+                <HomeView />
+              </Route>
+              <Route path='/books' exact>
+                <BooksView books={books} />
+              </Route>
 
-          <Route
-            path='/books/:bookId'
-            component={() => <BookDetailsView key={window.location.pathname} />}
-          />
-          <Redirect to='/home' />
-        </Switch>
-      </Context.Provider>
+              <Route
+                path='/books/:bookId'
+                component={() => (
+                  <BookDetailsView key={window.location.pathname} />
+                )}
+              />
+              <Redirect to='/home' />
+            </Switch>
+          </Context.Provider>
+        </>
+      )}
     </>
   );
 }

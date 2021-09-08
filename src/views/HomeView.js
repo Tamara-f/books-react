@@ -1,6 +1,13 @@
+import { useState } from 'react';
+
 import Container from '../components/Container/Container';
 
 export default function HomeView() {
+  const [changed, setChanged] = useState(false);
+
+  const handleClick = () => {
+    setChanged(true);
+  };
   return (
     <Container>
       <h1>Welcome Home!</h1>
@@ -22,6 +29,11 @@ export default function HomeView() {
         width='1100'
         alt='home'
       />
+      {changed ? (
+        <p>Hey there! :)</p>
+      ) : (
+        <button onClick={handleClick}>Say Hi!</button>
+      )}
     </Container>
   );
 }

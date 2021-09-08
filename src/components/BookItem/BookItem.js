@@ -2,7 +2,7 @@ import { Link, useRouteMatch } from 'react-router-dom';
 import s from './BookItem.module.css';
 
 const BookItem = ({ book }) => {
-  // const { url } = useRouteMatch();
+  const { url } = useRouteMatch();
 
   return (
     <>
@@ -17,8 +17,8 @@ const BookItem = ({ book }) => {
               <span>author:</span> {book.author}
             </p>
           </div>
-          {/* <Link to={`${url}/${book.id}`}>More information</Link> */}
-          <Link to={`books/${book.id}`}>More information</Link>
+          <Link to={`${url}/${book.id}`}>More information</Link>
+          {/* <Link to={`books/${book.id}`}>More information</Link> */}
         </div>
       ) : (
         <p>no info</p>
