@@ -14,8 +14,8 @@ const findBooks = (book, books) => {
 };
 
 export default function BookDetailsView() {
-  const [book, setBook] = useState('');
-  const [filteredBooks, setFilteredBooks] = useState('');
+  const [book, setBook] = useState(null);
+  const [filteredBooks, setFilteredBooks] = useState(null);
 
   const { bookId } = useParams();
   const books = useContext(Context);
@@ -25,6 +25,7 @@ export default function BookDetailsView() {
   useEffect(() => {
     const currentBook = books.find(book => book.id === bookId);
     setBook(currentBook);
+
     const authorsBooks = findBooks(book, books);
     setFilteredBooks(authorsBooks);
   }, [book, books, bookId]);
