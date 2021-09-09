@@ -39,4 +39,10 @@ describe('Home page component', () => {
     );
     expect(textElement).toBeNull();
   });
+
+  it('renders todos if request secceeds', async () => {
+    render(<HomeView />);
+    const listitemElement = await screen.findAllByRole('listitem');
+    expect(listitemElement).not.toHaveLength(0);
+  });
 });
